@@ -30,9 +30,24 @@ module.exports = {
     },
     module: {
         rules: [{
-            test: /\.[tj]sx?$/,
-            use: ['ts-loader']
-        }]
+            test: /\.(js|jsx)$/,
+            exclude: /nodeModules/,
+            use: {
+                loader: "babel-loader"
+            }
+        },
+            {
+                test: /\.less$/,
+                use: ["style-loader", {
+                    loader: "css-loader",
+                    options: {
+                        modules: {
+                            mode: 'local',
+                            localIdentName: '[name]__[local]--[hash:base64:5]'
+                        }
+                    }
+                }, "less-loader"]
+            }]
     },
     devtool: setupDevtool(),
     plugins: IS_DEV

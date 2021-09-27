@@ -12,19 +12,15 @@ const clientCompiler = webpack(webpackClientConfig);
 hmrserver.use(webpackDevMiddleware(clientCompiler, {
     publicPath: webpackClientConfig.output.publicPath,
     serverSideRender: true,
-    /*noInfo: true,
-    watchOptions: {
-        ignore: /dist/,
-    },*/
     writeToDisk: true,
     stats: 'errors-only',
 }));
 
-hmrserver.use(webpackHotMiddleware(clientCompiler,{
+hmrserver.use(webpackHotMiddleware(clientCompiler, {
     path: '/static/__webpack_hmr',
 }))
 
-hmrserver.listen(3001, ()=>{
+hmrserver.listen(3001, () => {
     console.log('HMR server successfully started');
 });
 
@@ -34,7 +30,6 @@ compiler.run((err) => {
     if (err) {
         console.log('Compiler failed: ', err);
     }
-
     compiler.watch({}, (err) => {
         if (err) {
             console.log('Compiler failed: ', err);
