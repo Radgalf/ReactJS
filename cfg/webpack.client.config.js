@@ -13,13 +13,13 @@ function setupDevtool() {
 }
 
 module.exports = {
+    mode: NODE_ENV ? NODE_ENV : 'development',
     resolve: {
         extensions: ['.jsx', '.js', '.json', '.ts','.tsx'],
         alias: {
             'react-dom': IS_DEV ? '@hot-loader/react-dom' : 'react-dom'
         }
     },
-    mode: NODE_ENV ? NODE_ENV : 'development',
     entry: [
         path.resolve(__dirname, '../src/client/index.jsx'),
         'webpack-hot-middleware/client?path=http://localhost:3001/static/__webpack_hmr'
@@ -34,7 +34,10 @@ module.exports = {
             test: /\.(js|jsx|ts|tsx)$/,
             exclude: /nodeModules/,
             use: {
-                loader: "babel-loader"
+                loader: "babel-loader",
+                options: {
+                    presets: ['@babel/preset-env']
+                }
             }
         },
             {
