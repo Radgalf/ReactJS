@@ -1,14 +1,19 @@
 import React from 'react';
 import styles from './author.css';
 
-export function Author() {
+export interface IUserInfo{
+  name: string;
+  avatarUrl: string;
+  profileLink: string;
+}
+export function Author( props: IUserInfo) {
   return (
     <div className={styles.userLink}>
       <img
         className={styles.avatar}
-        src="https://go.skillbox.ru/assets/img/app-logo/skillbox-logo.svg"
+        src={props.avatarUrl}
         alt="avatar"/>
-      <a href="#user-url" className={styles.username}>Дмитрий Гришин</a>
+      <a href={props.profileLink} className={styles.username}>{props.name}</a>
     </div>
   );
 }

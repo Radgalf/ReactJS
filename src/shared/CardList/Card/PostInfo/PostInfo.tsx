@@ -1,23 +1,30 @@
 import React from 'react';
 import styles from './postinfo.css';
-import {Author} from "../Author";
+import {Author, IUserInfo} from "../Author";
 
-export function PostInfo() {
+export interface IPostShortInfo{
+  title: string;
+  url: string;
+  author: IUserInfo;
+  crDate: string;
+}
+
+
+
+export function PostInfo(props: IPostShortInfo) {
+
   return (
     <div className={styles.textContent}>
       <div className={styles.metaData}>
-        <Author/>
+        <Author name={props.author.name} avatarUrl={props.author.avatarUrl} profileLink={props.author.profileLink}/>
         <span className={styles.createdAt}>
             <span className={styles.publishedLabel}>опубликовано </span>
-            4 часа назад
+            {props.crDate}
           </span>
       </div>
       <h2 className={styles.title}>
-        <a href="#post-url" className={styles.postLink}>
-          Test post OneTest post OneTest post OneTest post OneTest post OneTest post OneTest post OneTest post OneTest
-          post One
-          Test post OneTest post OneTest post OneTest post OneTest post OneTest post OneTest post OneTest post OneTest
-          post One
+        <a href={props.url} className={styles.postLink}>
+          {props.title}
         </a>
       </h2>
     </div>
