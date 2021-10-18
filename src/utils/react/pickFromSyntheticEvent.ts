@@ -7,3 +7,6 @@ export function pickFromSyntheticEvent<T extends HTMLElement>() {
         fn(e.currentTarget[key]);
     }
 }
+
+export const getValue = pickFromSyntheticEvent<HTMLInputElement>()("value");
+export const getChecked = pickFromSyntheticEvent<HTMLInputElement>()("checked");

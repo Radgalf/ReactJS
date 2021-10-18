@@ -26,12 +26,19 @@ button {
     color: var(--orange);
 }
 
-.closeButton {
-    background-color: var(--greyD9);
-    padding: 12px 23px;
-    border-radius: 0 0 3px 3px;
-    width: 100%;
+
+
+.menuItemsList {
+    padding: 0 20px;
 }
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background-color: var(--greyEC);
+}
+
+
 
 @media all and (min-width: 1024px) {
     .card {
