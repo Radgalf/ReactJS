@@ -2,7 +2,7 @@ import React from 'react';
 import {noop} from "../../utils/react/noop";
 
 export interface IItem {
-  text: JSX.Element;
+  itemContent: JSX.Element;
   id: string;
   onClick?: (id: string) => void;
   className?: string;
@@ -17,14 +17,15 @@ export interface IGenericListProps {
 export function GenericList({list}: IGenericListProps) {
   return (
     <>
-      {list.map(({As = 'div', text, onClick = noop, className, href, id}) => (
+      {list.map(({As = 'div', itemContent, onClick = noop, className, href, id}) => (
+
         <As
           className={className}
           onClick={() => onClick(id)}
           key={id}
           href={href}
         >
-          {text}
+          {itemContent}
         </As>
       ))}
     </>
