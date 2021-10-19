@@ -8,7 +8,6 @@ import {MenuItem} from "./Menu/MenuItem";
 import {GenericList, IItem} from "../../GenericList";
 import {generateId} from "../../../utils/react/generateRandomIndex";
 import {merge} from "../../../utils/js/merge";
-import {compose} from "../../../utils/react/compose";
 
 export interface ICardProps {
   post: IPostShortInfo;
@@ -58,17 +57,16 @@ const MENU_ITEMS: IItem[] = [
           fill="#999999"/>
       </svg>)}/>,
   }
-].map(
-  compose(merge(generateId(
-      {
-        As: "li" as const,
-        onClick: (id: string) => {
-          console.log(id)
-        }
-      })
-    )
-  )
+].map(generateId).map(
+  merge(
+    {
+      As: "li" as const,
+      onClick: (id: string) => {
+        console.log(id)
+      }
+    })
 )
+
 
 export function Card(props: ICardProps) {
   return (
