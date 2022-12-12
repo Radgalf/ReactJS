@@ -11,7 +11,7 @@ export interface IDropdownProps {
 }
 
 
-export function DropdownTemplate({button, children, isOpen, onOpen = noop, onClose = noop}: IDropdownProps) {
+export function Dropdown({button, children, isOpen, onOpen = noop, onClose = noop}: IDropdownProps) {
   const [isDropdownOpen, setIsDropdownOpen] = React.useState(isOpen)
   React.useEffect(() => setIsDropdownOpen(isOpen), [isOpen]);
   React.useEffect(() => isDropdownOpen ? onOpen() : onClose(), [isDropdownOpen])
