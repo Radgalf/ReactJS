@@ -1,5 +1,5 @@
 import React from 'react';
-import {BlockIcon, CommentIcon, MenuIcon, SaveIcon, ShareIcon, WarningIcon} from "../Icons";
+import {BlockIcon, CommentIcon, IconAnon, MenuIcon, SaveIcon, ShareIcon, WarningIcon} from "../Icons";
 
 export interface IIconBaseProp{
   size: number
@@ -10,7 +10,8 @@ export enum EIcons{
   save='save',
   share='share',
   warning='warning',
-  menu='menu'
+  menu='menu',
+  iconAnon='iconAnon'
 }
 
 const getIcon = (size: number) => ({
@@ -19,7 +20,8 @@ const getIcon = (size: number) => ({
   save: <SaveIcon size={size}/>,
   share: <ShareIcon size={size}/>,
   warning: <WarningIcon size={size}/>,
-  menu: <MenuIcon size={size}/>
+  menu: <MenuIcon size={size}/>,
+  iconAnon: <IconAnon size={size}/>,
 });
 
 interface IIconProps {
