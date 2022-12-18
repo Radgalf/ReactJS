@@ -23,9 +23,14 @@ app.get('/auth', (req, res) => {
       headers: {'Content-type': 'application/x-www-form-urlencoded'}
     }
   )
-  res.send(
-    indexTemplate(ReactDOM.renderToString(App())),
-  );
+    .then(({data}) => {
+      res.send(
+        indexTemplate(ReactDOM.renderToString(App()), data['access_token']),
+      );
+    })
+    .catch(console.error)
+
+
 });
 
 app.listen(3000, () => {
