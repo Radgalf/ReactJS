@@ -1,13 +1,12 @@
 import React from 'react';
 import styles from './menu.css';
-import {Dropdown, IDropdownProps} from "../../../Dropdown";
-import {noop} from "../../../../utils/react/noop";
+import {Dropdown} from "../../../Dropdown";
 import {EColors, Text} from '../../../Text'
 import {MenuItemList} from "./MenuItemList";
 import {EIcons, Icon} from "../../../Icon";
 
 
-export function Menu({children, isOpen, onClose = noop, onOpen = noop}: IDropdownProps) {
+export function Menu() {
   return (
     <div className={styles.menu}>
       <Dropdown button={

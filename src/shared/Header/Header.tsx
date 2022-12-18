@@ -4,6 +4,10 @@ import {ThreadTitle} from "./ThreadTitle";
 import {SortBlock} from "./SortBlock";
 import styles from "./header.css";
 
+interface IHeaderProps {
+  token: string;
+}
+
 export function Header() {
   return (
     <header className={styles.header}>
